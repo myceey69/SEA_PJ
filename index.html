@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
+    <title>TV Shows | Home</title>
+    <meta name="description" content="A Catalog of Shows" />
+    <link rel="stylesheet" href="style.css" />  <!-- Cascading Style Sheet --> 
+    <script type="text/javascript" src="scripts.js"></script>  <!-- functions in javascript --> 
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">TV Shows</h1>  <!-- title of the website --> 	
+	   <div class="footer">
+      <button onclick="quoteAlert();">Get A Quote!</button>    <!-- get a quote button --> 
+      <button onclick="removeLastCard();">Remove A Card!</button>    <!-- remove a card button --> 
+	  <div class="controls">
+  <select id="genreSelect" onchange="applyGenreFilter()">    <!-- select your genre --> 
+            <option value="">All Genres</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+          </select>
+  <button onclick="sortByYear()">Sort by Year ↑</button>	<!--sorting year by newest or oldest --> 
+  <button onclick="sortByYear(true)">Sort by Year ↓</button>
+  <input type="text" id="search-input" placeholder="Search shows..." />   <!--search for show --> 
+  
+		</div>
+	  
+		
     </header>
     <div id="card-container"></div>
     <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
-      </div>
-    </div>
+  <div class="card-content">                         <!-- displays the poster including title, image, genre, and a a brief description of the show --> 
+    <h2>TV Show Title</h2>
+    <a class="image-link" href="#" target="_blank">    <!-- implemented a clickable link in the image to see more about the show --> 
+      <img src="" alt="TV Show Poster" />
+    </a>
+    <ul></ul>
+  </div>
+</div>
     <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+     <div class="add-show">		<!-- adding your show--> 
+  <input id="titleInput" placeholder="Title" />     <!-- input the title --> 
+  <input id="genreInput" placeholder="Genre" />    <!--input the genre --> 
+  <input id="yearInput" type="number" placeholder="Year" />    <!-- input the year --> 
+  <input id="imageInput" placeholder="Image URL" />    <!-- add the image url --> 
+  <textarea id="descriptionInput" placeholder="Description"></textarea>    <!-- write a description for the show --> 
+  <button onclick="addShow()">Add Show</button>     <!-- add show button --> 
+  <div id="error-message" style="color: red; display: none;"></div>    <!-- if all the fields are not filled, error message will display--> 
+</div>
+  
+		</div>
+		
     </div>
+	
   </body>
 </html>
